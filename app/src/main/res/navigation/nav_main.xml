@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    android:label="MBTI 검사에 관하여"
+    app:startDestination="@id/examinFragment">
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.mynavapplication.AboutFragment"
+        android:label="이 앱에 관하여"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/examinFragment"
+        android:name="com.example.mynavapplication.ExaminFragment"
+        android:label="MBTI 검사지"
+        tools:layout="@layout/fragment_examin">
+        <action
+            android:id="@+id/action_examinFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.mynavapplication.SettingsFragment"
+        android:label="설정"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.mynavapplication.ResultFragment"
+        android:label="MBTI 검사 결과"
+        tools:layout="@layout/fragment_result">
+        <action
+            android:id="@+id/action_resultFragment_to_examinFragment"
+            app:destination="@id/examinFragment"
+            app:popUpTo="@id/examinFragment" />
+    </fragment>
+</navigation>
